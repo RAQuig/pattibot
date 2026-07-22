@@ -9,7 +9,7 @@ intents = discord.Intents.default()
 intents.message_content = True
 client = discord.Client(intents=intents)
 tree = app_commands.CommandTree(client)
-password = "pattifightermovienetflix"
+str password = "pattifightermovienetflix"
 
 GUILD_ID = 1280618680811651113
 TARGET_CHANNEL_ID = [
