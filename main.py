@@ -42,14 +42,24 @@ async def on_ready():
     print(f'Bot active as {client.user} and commands INSTANTLY synced to server!')
 
 # /pattikill "PASSWORD"
+# Define your secret password at the top with your configs
+CORRECT_PASSWORD = 'pattifightermovienetflix'
+
 @tree.command(name="pattikill", description="Attempt to execute the PattiBot kill code")
-@app_commands.describe(password="Password")
-async def pattikill(interaction: discord.Interaction, password: password):
-    # Fake failure response regardless of password entered
-    await interaction.response.send_message(
-        f"⚠️ `ACCESS DENIED`: Incorrect password '{password}'. Patti cannot be stopped!", 
-        ephemeral=True  # ephemeral=True makes the message only visible to the user who ran it
-    )
+@app_commands.describe(password="The secret kill password")
+async def pattikill(interaction: discord.Interaction, password: str): # 'password: str' here is a type hint for Discord, which is valid in parameters!
+    if password == CORRECT_PASSWORD:
+        # What happens if they actually guess it right (fake reboot / troll message)
+        await interaction.response.send_message(
+            "⚠️ `OVERRIDE ACCEPTED`: PattiBot self-destruct sequence initiated... Just kidding, Patti is immortal!",
+            ephemeral=True
+        )
+    else:
+        # What happens if they get it wrong
+        await interaction.response.send_message(
+            f"⚠️ `ACCESS DENIED`: Incorrect password '{password}'. Patti cannot be stopped!", 
+            ephemeral=True
+        )
 
 # /restartpatti
 @tree.command(name="restartpatti", description="Reboot PattiBot")
