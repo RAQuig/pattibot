@@ -1,3 +1,6 @@
+import os
+from asyncio import create_task
+from aiohttp import web
 import discord
 
 intents = discord.Intents.default()
@@ -23,6 +26,24 @@ async def on_message(message):
         await message.channel.send("Yeah but have you seen Patti?")
         for gif in PATTI_GIFS:
             await message.channel.send(gif)
+
+# --- Web Server to make bot stay awake at all times ---
+async def handle_ping(request):
+    return web.Response(text="Bot is alive!")
+
+async def start_web_server():
+    app = web.Application()
+    app.router.add_get("/", handle_ping)
+    runner = web.AppRunner(app)
+    await runner.setup()
+    port = int(os.getenv("PORT", 8000)
+    site = web.TCPSite(runner, "0.0.0.0", port)
+    await site.start()
+
+@client_event
+async def setup_hook():
+    #start web server alongside the bot
+    client.loop.create_task(start_web_server())
 
 #Fetch token from server
 TOKEN = os.getenv("DISCORD_TOKEN")
