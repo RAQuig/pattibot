@@ -57,6 +57,7 @@ async def on_message(message):
         return
 
     if message.channel.id in TARGET_CHANNEL_ID:
+        await message.channel.send("Yeah, but have you seen Patti?")
         chosen_gif = random.choice(PATTI_GIFS)
         await message.channel.send(chosen_gif)
 
