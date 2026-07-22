@@ -40,7 +40,7 @@ async def start_web_server():
     site = web.TCPSite(runner, "0.0.0.0", port)
     await site.start()
 
-@client_event
+@client.event
 async def setup_hook():
     #start web server alongside the bot
     client.loop.create_task(start_web_server())
