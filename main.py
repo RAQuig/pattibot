@@ -42,8 +42,8 @@ async def on_ready():
 
 # /pattikill "PASSWORD"
 @tree.command(name="pattikill", description="Attempt to execute the PattiBot kill code")
-@app_commands.describe(password="fightermovienetflix")
-async def pattikill(interaction: discord.Interaction, password: str):
+@app_commands.describe(password="Password")
+async def pattikill(interaction: discord.Interaction, password: "fightermovienetflix"):
     # Fake failure response regardless of password entered
     await interaction.response.send_message(
         f"⚠️ `ACCESS DENIED`: Incorrect password '{password}'. Patti cannot be stopped!", 
