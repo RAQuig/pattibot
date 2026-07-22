@@ -10,6 +10,7 @@ intents.message_content = True
 client = discord.Client(intents=intents)
 tree = app_commands.CommandTree(client)
 
+GUILD_ID = 1280618680811651113
 TARGET_CHANNEL_ID = [
     1448879000863899719,
     1529561211522519191
@@ -31,6 +32,14 @@ PATTI_GIFS = [
 
 # --- SLASH COMMANDS ---
 
+@client.event
+async def on_ready():
+    guild = discord.Object(id=GUILD_ID)
+    # Copy global commands directly to this specific server
+    tree.copy_global_to(guild=guild)
+    await tree.sync(guild=guild)
+    print(f'Bot active as {client.user} and commands INSTANTLY synced to server!')
+
 # /pattikill "PASSWORD"
 @tree.command(name="pattikill", description="Attempt to execute the PattiBot kill code")
 @app_commands.describe(password="fightermovienetflix")
@@ -47,9 +56,6 @@ async def restartpatti(interaction: discord.Interaction):
     await interaction.response.send_message("🔄 Rebooting PattiBot systems... Patti is back online!")
 
 # --- PATTI EVENTS ---
-@client.event
-async def on_ready():
-    print(f'Bot active as {client.user}')
 
 @client.event
 async def on_message(message):
