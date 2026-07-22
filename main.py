@@ -14,7 +14,17 @@ TARGET_CHANNEL_ID = [
 ]
     
 PATTI_GIFS = [
-    "https://tenor.com/view/hrithik-roshan-fighter-teaser-bollywood-teaser-vande-mataram-sujalam-sufalam-gif-4951463871021573191"
+    "https://tenor.com/view/hrithik-roshan-fighter-teaser-bollywood-teaser-vande-mataram-sujalam-sufalam-gif-4951463871021573191",
+    "https://tenor.com/view/hrithik-roshan-fighter-teaser-bollywood-teaser-deepika-padukone-vande-mataram-gif-6989259302099312995",
+    "https://tenor.com/view/hrithik-roshan-fighter-teaser-bollywood-teaser-vande-mataram-sujalam-sufalam-gif-10333642642613646704",
+    "https://tenor.com/view/hrithik-roshan-fighter-teaser-bollywood-teaser-deepika-padukone-vande-mataram-gif-3952919288663474187",
+    "https://tenor.com/view/bhaag-running-hrithik-roshan-fighter-teaser-bollywood-teaser-gif-14448913600170022205",
+    "https://tenor.com/view/hrithik-roshan-fighter-teaser-bollywood-teaser-%E0%A4%8B%E0%A4%A4%E0%A4%BF%E0%A4%95-%E0%A4%B0%E0%A5%8B%E0%A4%B6%E0%A4%A8-hrithik-roshan-movie-gif-11389820009296918697",
+    "https://tenor.com/view/hrithik-fire-shamsher-fire-fighter-fire-patty-fire-hrithik-fighter-gif-14649325419096231176"
+    
+    
+    
+    
 ]
 
 @client.event
