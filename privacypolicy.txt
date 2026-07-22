@@ -1,0 +1,23 @@
+Privacy Policy for PattiBot
+
+Last Updated: July 22, 2026
+1. Information We Collect
+
+PattiBot is designed with privacy in mind.
+
+    Data Read: PattiBot monitors incoming messages in real-time solely to check the Channel ID where the message was sent.
+
+    Data Stored: PattiBot does not store, log, or save any user messages, usernames, user IDs, IP addresses, or personal information on any server, database, or persistent storage.
+
+2. How Information Is Used
+
+PattiBot processes Channel IDs entirely in memory to trigger its predefined responses (sending Patti GIFs in designated channels). Once a message is evaluated, it is immediately discarded.
+3. Data Sharing and Third Parties
+
+Because PattiBot does not collect or store any user data, no user data is ever sold, shared, or transferred to third parties.
+4. Data Retention and Removal
+
+Since no data is collected or retained, there is no stored data to request or delete. Removing PattiBot from your Discord server immediately revokes its ability to process messages in your channels.
+5. Contact
+
+If you have any questions about this Privacy Policy, please contact the bot developer via Discord.
