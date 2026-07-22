@@ -9,6 +9,7 @@ intents = discord.Intents.default()
 intents.message_content = True
 client = discord.Client(intents=intents)
 tree = app_commands.CommandTree(client)
+password = "pattifightermovienetflix"
 
 GUILD_ID = 1280618680811651113
 TARGET_CHANNEL_ID = [
@@ -43,7 +44,7 @@ async def on_ready():
 # /pattikill "PASSWORD"
 @tree.command(name="pattikill", description="Attempt to execute the PattiBot kill code")
 @app_commands.describe(password="Password")
-async def pattikill(interaction: discord.Interaction, password: "fightermovienetflix"):
+async def pattikill(interaction: discord.Interaction, password: password):
     # Fake failure response regardless of password entered
     await interaction.response.send_message(
         f"⚠️ `ACCESS DENIED`: Incorrect password '{password}'. Patti cannot be stopped!", 
