@@ -1,4 +1,5 @@
 import os
+import random
 from asyncio import create_task
 from aiohttp import web
 import discord
@@ -9,7 +10,7 @@ client = discord.Client(intents=intents)
 
 TARGET_CHANNEL_ID = [
     1448879000863899719,
-    1280618686553526303
+    1529561211522519191
 ]
     
 PATTI_GIFS = [
@@ -28,7 +29,8 @@ async def on_message(message):
     if message.channel.id in TARGET_CHANNEL_ID:
         await message.channel.send("Yeah but have you seen Patti?")
         for gif in PATTI_GIFS:
-            await message.channel.send(gif)
+            chosen_gif = random.choice(PATTI_GIFS)
+            await message.channel.send(chosen_gif)
 
 # --- Web Server to make bot stay awake at all times ---
 async def handle_ping(request):
