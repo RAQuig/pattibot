@@ -3,10 +3,12 @@ import random
 from asyncio import create_task
 from aiohttp import web
 import discord
+from discord import app_commands
 
 intents = discord.Intents.default()
 intents.message_content = True
 client = discord.Client(intents=intents)
+tree = app_commands.CommandTree(client)
 
 TARGET_CHANNEL_ID = [
     1448879000863899719,
@@ -27,6 +29,24 @@ PATTI_GIFS = [
     
 ]
 
+# --- SLASH COMMANDS ---
+
+# /pattikill "PASSWORD"
+@tree.command(name="pattikill", description="Attempt to execute the PattiBot kill code")
+@app_commands.describe(password="fightermovienetflix")
+async def pattikill(interaction: discord.Interaction, password: str):
+    # Fake failure response regardless of password entered
+    await interaction.response.send_message(
+        f"⚠️ `ACCESS DENIED`: Incorrect password '{password}'. Patti cannot be stopped!", 
+        ephemeral=True  # ephemeral=True makes the message only visible to the user who ran it
+    )
+
+# /restartpatti
+@tree.command(name="restartpatti", description="Reboot PattiBot")
+async def restartpatti(interaction: discord.Interaction):
+    await interaction.response.send_message("🔄 Rebooting PattiBot systems... Patti is back online!")
+
+# --- PATTI EVENTS ---
 @client.event
 async def on_ready():
     print(f'Bot active as {client.user}')
@@ -37,10 +57,8 @@ async def on_message(message):
         return
 
     if message.channel.id in TARGET_CHANNEL_ID:
-        await message.channel.send("Yeah but have you seen Patti?")
-        for gif in PATTI_GIFS:
-            chosen_gif = random.choice(PATTI_GIFS)
-            await message.channel.send(chosen_gif)
+        chosen_gif = random.choice(PATTI_GIFS)
+        await message.channel.send(chosen_gif)
 
 # --- Web Server to make bot stay awake at all times ---
 async def handle_ping(request):
