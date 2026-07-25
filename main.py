@@ -10,10 +10,15 @@ intents.message_content = True
 client = discord.Client(intents=intents)
 tree = app_commands.CommandTree(client)
 
-GUILD_ID = 1280618680811651113
+GUILD_ID = [ 
+    1280618680811651113,
+    1375329127183286345
+]
+    
 TARGET_CHANNEL_ID = [
     1448879000863899719,
-    1529561211522519191
+    1529561211522519191,
+    1530643788538581003
 ]
     
 PATTI_GIFS = [
